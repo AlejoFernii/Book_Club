@@ -23,7 +23,7 @@ class Book:
 
     @classmethod
     def get_all_with_user(cls):
-        query = "SELECT * FROM books JOIN users ON book.user_id = users.id;"
+        query = "SELECT * FROM books JOIN users ON books.user_id = users.id;"
 
         results = connectToMySQL(cls.DB).query_db(query)
 
