@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="{{url_for('static',filename='css/alex.css')}}">
 
-    <script defer src="{{url_for('static',filename='js/script.js')}}"></script>
+    <script defer src="{{url_for('static',filename='js/alex.js')}}"></script>
 
 
 </head>
@@ -33,7 +33,7 @@
         <div class="main-left">
 
             <form action="/create/book" class="form" id="book-form">
-
+                <input type="hidden" name="user_id" value="{{current_user.id}}">
                 <button type="button" onclick="showBookForm(this)" class="btn btn-lg btn-dark btn-outline-success">Add
                     Book</button>
 
