@@ -69,7 +69,7 @@ class User:
         if len(member['last_name']) <= 2:
             flash("Last Name Required.", 'reg')
             is_valid = False
-        if len(member['pw']) < 8:
+        if len(member['password']) < 8:
             flash("Password Must Be At Least 8 Characters.", 'reg')
             is_valid = False
         if not EMAIL_REGEX.match(member['email']):
