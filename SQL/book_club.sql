@@ -24,8 +24,8 @@ CREATE TABLE IF NOT EXISTS `book_club`.`users` (
   `last_name` VARCHAR(100) NULL,
   `email` VARCHAR(100) NULL,
   `password` LONGTEXT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME NULL DEFAULT NOW(),
+  `updated_at` DATETIME NULL DEFAULT NOW(),
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -38,15 +38,15 @@ CREATE TABLE IF NOT EXISTS `book_club`.`books` (
   `user_id` INT NOT NULL,
   `title` VARCHAR(100) NULL,
   `description` LONGTEXT NULL,
-  `created_at` DATETIME NULL,
-  `updated_at` DATETIME NULL,
+  `created_at` DATETIME NULL DEFAULT NOW(),
+  `updated_at` DATETIME NULL DEFAULT NOW(),
   PRIMARY KEY (`id`),
   INDEX `fk_books_users_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_books_users`
     FOREIGN KEY (`user_id`)
     REFERENCES `book_club`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -63,13 +63,13 @@ CREATE TABLE IF NOT EXISTS `book_club`.`favorites` (
   CONSTRAINT `fk_books_has_users_books1`
     FOREIGN KEY (`book_id`)
     REFERENCES `book_club`.`books` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_books_has_users_users1`
     FOREIGN KEY (`user_id`)
     REFERENCES `book_club`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
