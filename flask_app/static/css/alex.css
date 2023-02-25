@@ -25,4 +25,70 @@
     margin: 20px auto;
     padding: 10px;
     max-width: 1000px;
+
+    display: flex;
+    gap: 100px;
+    justify-content: space-around;
+}
+
+.main-left{
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.main-left>h2{
+    width: max-content;
+
+}
+
+.main-right{
+    flex: 3;
+    width: 100%;
+
+}
+
+.book-feed{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 30px;
+
+}
+
+
+/* Books */
+.books{
+    background-color: rgba(63, 66, 70, 0.715);
+    border-radius: 15px;
+    width: 100%;
+    padding: 20px;
+}
+.book-header{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(21, 22, 23, 0.723);
+    border-radius: 15px;
+    align-items: center;
+}
+
+.book-title{
+    font-size: 2rem;
+}
+
+.book-description{
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.user-detail{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: flex-start;
+}
+
+.book-footer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }

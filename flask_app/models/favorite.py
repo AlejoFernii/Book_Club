@@ -22,7 +22,7 @@ class Favorite:
         results = connectToMySQL(cls.DB).query_db(query,data)
 
         liked_by = []
-
+        print(results)
         for row in results:
 
             user_data = {
@@ -31,8 +31,8 @@ class Favorite:
                 'last_name':row['last_name'],
                 'email':row['email'],
                 'password':row['password'],
-                'created_at':row['users.created_at'],
-                'updated_at':row['users.updated_at'],
+                'created_at':row['created_at'],
+                'updated_at':row['updated_at'],
             }
 
             one_user = user.User(user_data)

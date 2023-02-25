@@ -31,6 +31,7 @@
     <div class="main-con" id="main">
 
         <div class="main-left">
+            <h2>Add a New Book!</h2>
 
             <form action="/create/book" class="form" id="book-form" method="post">
                 <input type="hidden" name="user_id" value="{{current_user.id}}">
@@ -51,27 +52,28 @@
             <div class="book-feed ">
                 {% for book in all_books %}
                 <div class="books">
-                    <div class=" d-flex justify-content-between align-items-center">
-                        <p class="book-topic">{{ book.title }}</p>
-                        <p class="book-topic">{{ book.description }}</p>
+                    <div class="book-header">
+                        <a href="/show/book/{{book.id}}" class="book-title text-info">{{ book.title }}</a>
+                    </div>
+                    <div class="book-footer ">
                         <div class="user-detail">
                             <p>
-                                Added By <a class="btn btn-dark btn-lg btn-outline-info fw-bold"
-                                    href="/profile/{{book.creator.id}}">
-                                    {{ book.creator.first_name }} {{ book.creator.last_name }}
-                                </a>
+                                Added By
                             </p>
-<!--                             <a class="btn btn-dark btn-lg btn-outline-info fw-bold" href="/profile/{{book.creator.id}}">
+                            <a class="btn btn-dark btn-lg btn-outline-info fw-bold" href="/profile/{{book.creator.id}}">
                                 {{ book.creator.first_name }} {{ book.creator.last_name }}
-                            </a> -->
+                            </a>
                         </div>
+                        {% if book.id in all_favs %}
+                        <p>Book Already in Favorites!</p>
+                        {% else %}
+                        <form action="/add/favorite" method="post">
+                            <input type="hidden" name="book_id" value="{{book.id}}">
+                            <input type="hidden" name="user_id" value="{{current_user.id}}">
+                            <input type="submit" class="btn btn-lg btn-info btn-outline-light" value="Add to Favorites +">
+                        </form>
+                        {% endif %}
                     </div>
-
-
-                    <a href="/add/favorite/{{book.id}}/{{current_user.id}}"
-                        class="commentBtn btn btn-lg btn-info btn-outline-light">Add to Favorites +</a>
-
-                    <p class="time-stamp ">{{book.created_at}}</p>
                 </div>
                 {% endfor %}
             </div>
