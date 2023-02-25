@@ -32,7 +32,7 @@
 
         <div class="main-left">
 
-            <form action="/create/book" class="form" id="book-form">
+            <form action="/create/book" class="form" id="book-form" method="post">
                 <input type="hidden" name="user_id" value="{{current_user.id}}">
                 <button type="button" onclick="showBookForm(this)" class="btn btn-lg btn-dark btn-outline-success">Add
                     Book</button>
@@ -53,17 +53,17 @@
                 <div class="books">
                     <div class=" d-flex justify-content-between align-items-center">
                         <p class="book-topic">{{ book.title }}</p>
+                        <p class="book-topic">{{ book.description }}</p>
                         <div class="user-detail">
                             <p>
                                 Added By <a class="btn btn-dark btn-lg btn-outline-info fw-bold"
                                     href="/profile/{{book.creator.id}}">
                                     {{ book.creator.first_name }} {{ book.creator.last_name }}
                                 </a>
-
                             </p>
-                            <a class="btn btn-dark btn-lg btn-outline-info fw-bold" href="/profile/{{book.creator.id}}">
+<!--                             <a class="btn btn-dark btn-lg btn-outline-info fw-bold" href="/profile/{{book.creator.id}}">
                                 {{ book.creator.first_name }} {{ book.creator.last_name }}
-                            </a>
+                            </a> -->
                         </div>
                     </div>
 

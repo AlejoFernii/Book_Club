@@ -23,8 +23,8 @@ function showBookForm(e){
         labelDescription.innerHTML = "Description:"
 
     let inputDescription = document.createElement('textarea')
-        inputDescription.setAttribute('cols','20')
-        inputDescription.setAttribute('rows','4')
+        inputDescription.setAttribute('cols','30')
+        inputDescription.setAttribute('rows','6')
         inputDescription.setAttribute('name','description')
 
     formGroup2.append(labelDescription, inputDescription)
