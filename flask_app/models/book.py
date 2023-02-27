@@ -129,8 +129,20 @@ class Book:
             for fav in all_favs:
                 one_book.liked_by.append(fav)
 
+        date = {'id':row['id']}
+        posted = cls.date_posted(date)
+
+        one_book.created_at = posted
 
         return one_book
+    
+    @classmethod
+    def date_posted(cls,data):
+        query = "SELECT DATE_FORMAT(created_at, '%%%%M %%%%D %%%%Y') AS date FROM books WHERE id = %(id)s;"
+
+        result = connectToMySQL(cls.DB).query_db(query,data)
+
+        return result[0]['date']
 
     @classmethod
     def update_book(cls, data):

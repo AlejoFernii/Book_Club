@@ -100,6 +100,22 @@
     width: 50px;
 }
 
+.options{
+    width: 100%;
+    /* display: flex; */
+    padding: 5%;
+    padding-top: 10px;
+}
+
+.actions button, ul, li{
+    width: 100%;
+}
+
+li{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 
 
 /* PROFILE PAGE */
