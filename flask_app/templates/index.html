@@ -15,7 +15,7 @@
         </div>
         <div class="d-flex justify-content-center text-center">
     
-            <form action="/login" class="login" method="post">
+            <form action="/login" class="login mx-auto" method="post">
                 <h2 class="">Welcome Back</h2>
                 {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
                     {% if login_messages %}
@@ -25,12 +25,12 @@
                     {% endif %}
                 {% endwith %}
                 <hr>
-                <div class="form-details">
-                    <label class="" for="email">Email:</label>
+                <div class="form-group">
+                    <label for="email">Email:</label>
                     <input type="text" name="email" title="email">
                 </div>
-                <div class="form-details">
-                    <label class="" for="password">Password:</label>
+                <div class="form-group">
+                    <label for="password">Password:</label>
                     <input type="password" name="password" id="password">
                 </div>
                 <input type="submit" value="Login" class="btn btn-lg btn-dark btn-outline-light">
