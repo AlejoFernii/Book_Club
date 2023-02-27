@@ -17,11 +17,3 @@ def home():
 
     return render_template('home.html', current_user=current_user, all_books=all_books, all_favs=all_favs)
 
-@app.route('/create/book', methods=['POST'])
-def create_book():
-    valid_book = book.Book.validate_book(request.form)
-    if valid_book:
-        print('Book created successfully!')
-        # newbook = book.Book.save(request.form)
-        book.Book.save(request.form)
-    return redirect('/home')

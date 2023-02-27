@@ -71,10 +71,10 @@ class Book:
         return all_books
 
     @classmethod
-    def get_all_from_user(cls):
-        query = "SELECT * FROM books JOIN users ON book.user_id = users.id WHERE users.id = %(id)s;"
+    def get_all_from_user(cls,data):
+        query = "SELECT * FROM books JOIN users ON books.user_id = users.id WHERE users.id = %(id)s;"
 
-        results = connectToMySQL(cls.DB).query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query,data)
 
         all_books = []
 
@@ -102,9 +102,9 @@ class Book:
 
     @classmethod
     def get_one(cls, data):
-        query = "SELECT * FROM books JOIN users ON books.user_id = users.id WHERE users.id = %(id)s;"
+        query = "SELECT * FROM books JOIN users ON books.user_id = users.id WHERE books.id = %(id)s;"
 
-        results = connectToMySQL(cls.DB).query_db(query)
+        results = connectToMySQL(cls.DB).query_db(query,data)
 
         for row in results:
 
@@ -124,11 +124,17 @@ class Book:
 
             one_book.creator = one_user
 
+            fav_data = {'id':row['id']}
+            all_favs = favorite.Favorite.get_liked_by(fav_data)
+            for fav in all_favs:
+                one_book.liked_by.append(fav)
+
+
         return one_book
 
     @classmethod
     def update_book(cls, data):
-        query = "UPDATE books SET title = %(title)s, description = %(description), updated_at = NOW() WHERE id = %(id)s;"
+        query = "UPDATE books SET title = %(title)s, description = %(description)s, updated_at = NOW() WHERE id = %(id)s;"
 
         return connectToMySQL(cls.DB).query_db(query, data)
 

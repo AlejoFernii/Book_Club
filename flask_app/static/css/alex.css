@@ -92,3 +92,46 @@
     align-items: flex-end;
     justify-content: space-between;
 }
+
+
+/* SHOW BOOK PAGE */
+
+.small-img{
+    width: 50px;
+}
+
+
+
+/* PROFILE PAGE */
+
+.profile-img{
+    width: 200px;
+}
+
+.profile-head{
+    margin: 10px 10px 0px 10px;
+    align-items: center;
+    display: flex;
+    padding: 5%;
+    background-color: rgba(54, 58, 63, 0.667);
+    border-radius: 15px;
+    /* justify-content: space-between; */
+    justify-content: center;
+}
+
+.head-details{
+    display: flex;
+    flex: 3;
+    align-items: center;
+    gap: 10px;
+}
+
+.favorites{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+

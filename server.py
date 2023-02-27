@@ -1,5 +1,5 @@
 from flask_app import app
-from flask_app.controllers import users, home, favorites
+from flask_app.controllers import users, home, favorites, books, profile
 
 
 
