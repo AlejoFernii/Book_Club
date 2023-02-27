@@ -9,14 +9,12 @@
 </head>
 <body>
     <body>
-    
         <div class="top_header">
-        <h1 class="text-center text-info bg-transparent">The Book Club</h1>
+            <h1 class="text-center text-info bg-transparent">The Book Club</h1>
         </div>
-        <div class="d-flex justify-content-center text-center">
-    
-            <form action="/login" class="login mx-auto" method="post">
-                <h2 class="">Welcome Back</h2>
+        <div class="d-flex justify-content-around">
+            <form action="/login" class="login mx-auto col-4 p-4" method="post">
+                <h2 class="text-center">Welcome Back</h2>
                 {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
                     {% if login_messages %}
                         {% for message in login_messages %}
@@ -26,14 +24,14 @@
                 {% endwith %}
                 <hr>
                 <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="text" name="email" title="email">
+                    <label class="form-label"for="email">Email:</label>
+                    <input type="text" name="email" title="form-control" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password">
+                    <label class="form-label" for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-control">
                 </div>
-                <input type="submit" value="Login" class="btn btn-lg btn-dark btn-outline-light">
+                <input type="submit" value="Login" class="m-2 btn btn-lg btn-dark btn-outline-light">
                 <a href="/reg_page" class="btn btn-sm btn-dark btn-outline-light">Create Account</a>
             </form>
         </div>
