@@ -1,7 +1,26 @@
 * {
     margin: 0;
 }
+/* Index Page Styling */
+.container {
+    background-color:rgb(223, 243, 255);
+    margin: auto;
+    width: 800px;
+    padding: 50px 50px;
+}
 
+.form-control {
+    border: none;
+}
+
+body {
+    background-color:rgb(223, 243, 255);
+}
+
+/* Error Messages */
+.flash {
+    color: red;
+}
 /*Navbar Styling */
 .top_nav {
     max-width: 95%;
@@ -150,4 +169,5 @@ li{
     width: 100%;
 
 }
+
 
