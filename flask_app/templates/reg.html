@@ -24,66 +24,49 @@
 </head>
 
 <body>
-    <div class="top_header">
-    <h1 class="text-center text-info bg-transparent ">The Book Club</h1>
-    </div>
-    <div class="main container ">
-        <form action="/registration" class="register login mx-auto col-9 p-3" method="post">
-            <h2 class="text-center">Create an Account</h2>
-            {% with messages = get_flashed_messages(category_filter=["reg",'dupe']) %}
-                {% if messages %}
-                    {% for message in messages %}
-                        <p class="flash">{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <hr>
-            
-            <div class="">
-                <label class="form-label" for="first_name">First Name</label>
-                <input type="text" name="first_name" title="first_name" class="form-control">
-            </div>
-            <div class="">
-                <label class="form-label" for="last_name">Last Name</label>
-                <input type="text" name="last_name" title="last_name" class="form-control">
-            </div>
-            <div class="">
-                <label class="form-label"for="email">Email</label>
-                <input type="email" name="email" title="email" class="form-control">
-            </div>
-            <div class="">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" name="password" title="password" class="form-control">
-            </div>
-            <div class="">
-                <label class="form-label"for="confirm">Confirm Password</label>
-                <input type="password" name="confirm" title="confirm" class="form-control">
-            </div>
-            <input type="submit" value="Create Account" class="m-2 btn btn-lg btn-dark btn-outline-light">
-        </form>
-            <!--This can be changed back if we want, I just think it looks more clean-->
-            <p class="m-2 text-center">Already have an account? <a href="/">Login</a></p>
+    <div id="index-div">
 
-        <!-- <form action="/login" class="login" method="post">
-            <h2 class="text-info">Welcome Back</h2>
-            {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
-                {% if login_messages %}
-                    {% for message in login_messages %}
-                        <p class="flash">{{ message }}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <hr>
-            <div class="">
-                <label for="email">Email</label>
-                <input type="email" name="email" title="email">
-            </div>
-            <div class="">
-                <label for="pw">Password</label>
-                <input type="password" name="password" title="password">
-            </div>
-            <input type="submit" value="Login" class="btn btn-lg btn-dark btn-outline-light">
-        </form> -->
+        <div class="top_header">
+        <h1 class="text-center text-info bg-transparent " id="title">The Book Club</h1>
+        </div>
+        <div class="main container ">
+            <form action="/registration" class="register login mx-auto col-9 p-3" method="post">
+                <h2 class="text-center">Create an Account</h2>
+                {% with messages = get_flashed_messages(category_filter=["reg",'dupe']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p class="flash">{{ message }}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <hr>
+                
+                <div class="">
+                    <label class="form-label" for="first_name">First Name</label>
+                    <input type="text" name="first_name" title="first_name" class="form-control">
+                </div>
+                <div class="">
+                    <label class="form-label" for="last_name">Last Name</label>
+                    <input type="text" name="last_name" title="last_name" class="form-control">
+                </div>
+                <div class="">
+                    <label class="form-label"for="email">Email</label>
+                    <input type="email" name="email" title="email" class="form-control">
+                </div>
+                <div class="">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" name="password" title="password" class="form-control">
+                </div>
+                <div class="">
+                    <label class="form-label"for="confirm">Confirm Password</label>
+                    <input type="password" name="confirm" title="confirm" class="form-control">
+                </div>
+                <input type="submit" value="Create Account" class="m-2 btn btn-lg btn-dark btn-outline-light" id="reg">
+            </form>
+                <!--This can be changed back if we want, I just think it looks more clean--> <!--Agree I Like It-Alex-->
+                <p class="m-2 text-center" >Already have an account? <a href="/">Login</a></p>
+    
+        </div>
     </div>
 
 </body>
