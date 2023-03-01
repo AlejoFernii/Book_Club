@@ -46,7 +46,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     {% for book in all_favs %}
-                    <li><a href="/show/book/{{book.id}}" class="dropdown-item">{{book.title}}</a></li>
+                    <li><a href="/show/book/{{book.id}}" class="dropdown-item btn btn-dark btn-lg btn-outline-success">{{book.title}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -60,7 +60,7 @@
 
             <form action="/create/book" class="form" id="book-form" method="post">
                 <input type="hidden" name="user_id" value="{{current_user.id}}">
-                <button type="button" onclick="showBookForm(this)" class="btn btn-lg btn-dark btn-outline-success">Add
+                <button type="button" onclick="showBookForm(this)" class="btn btn-lg btn-dark btn-outline-success" id="addBtn">Add
                     Book</button>
 
             </form>

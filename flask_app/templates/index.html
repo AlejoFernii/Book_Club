@@ -9,31 +9,37 @@
     <title>Index Page</title>
 </head>
 <body>
-        <div class="top_header">
-            <h1 class="text-center text-info bg-transparent">The Book Club</h1>
-        </div>
-        <div class="d-flex justify-content-around">
-            <form action="/login" class="login mx-auto col-4 p-4" method="post">
-                <h2 class="text-center">Welcome Back</h2>
-                {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
-                    {% if login_messages %}
-                        {% for message in login_messages %}
-                            <p class="flash">{{ message }}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                <hr>
-                <div class="form-group">
-                    <label class="form-label"for="email">Email:</label>
-                    <input type="text" name="email" title="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="password">Password:</label>
-                    <input type="password" name="password" id="password" class="form-control">
-                </div>
-                <input type="submit" value="Login" class="m-2 btn btn-lg btn-dark btn-outline-light">
-                <a href="/reg_page" class="btn btn-sm btn-dark btn-outline-light">Create Account</a>
-            </form>
+        <div id="index-div">
+            <div class="top_header">
+                <h1 class="text-center " id="title">The Book Club</h1>
+            </div>
+            <div class="d-flex justify-content-around">
+                <form action="/login" class="login mx-auto col-4 p-4" method="post">
+                    <h2 class="text-center color-effect">Welcome Back</h2>
+                    {% with login_messages = get_flashed_messages(category_filter=["login"]) %}
+                        {% if login_messages %}
+                            {% for message in login_messages %}
+                                <p class="flash">{{ message }}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <hr>
+                    <div class="form-group">
+                        <label class="form-label"for="email">Email:</label>
+                        <input type="text" name="email" title="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password:</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="loginBtn-div">
+                        <input type="submit" value="Login" class="m-2 btn btn-lg btn-dark btn-outline-light" id="login">
+                        <a href="/reg_page" class="btn btn-sm btn-dark btn-outline-light" id="reg">Create Account</a>
+    
+                    </div>
+                </form>
+            </div>
+
         </div>
 </body>
 </html>

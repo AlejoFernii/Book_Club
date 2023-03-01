@@ -137,6 +137,7 @@ li{
 
 
 
+
 /* PROFILE PAGE */
 
 .profile-img{
@@ -170,4 +171,43 @@ li{
 
 }
 
+#addBtn, #login, #reg{
+    width: 100%;
+}
 
+.loginBtn-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* INDEX EFFECT */
+
+#index-div{
+    opacity: 0;
+    animation: fade 1s ease-in 1s forwards;
+    }
+
+    @keyframes fade {
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+
+#title{
+    font-size: 10rem;
+    background: linear-gradient(to right,rgb(67,124,205),rgb(69,214,202));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.color-effect, .greeting{
+    background: linear-gradient(to right,rgb(67,124,205),rgb(69,214,202));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
