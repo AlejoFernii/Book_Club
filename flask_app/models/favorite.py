@@ -53,12 +53,13 @@ class Favorite:
         for row in results:
 
             book_data = {
-                'id':row['id'],
+                'id':row['books.id'],
                 'user_id':row['user_id'],
                 'title':row['title'],
                 'description':row['description'],
                 'created_at':row['created_at'],
                 'updated_at':row['updated_at'],
+                'in_favs': False,
             }
 
             one_book = book.Book(book_data)
@@ -66,3 +67,11 @@ class Favorite:
             all_favs.append(one_book)
 
         return all_favs
+    
+
+
+    @classmethod
+    def destroy_favorite(cls,data):
+        query = "DELETE FROM favorites WHERE book_id = %(book_id)s AND user_id = %(user_id)s;"
+
+        return connectToMySQL(cls.DB).query_db(query,data)

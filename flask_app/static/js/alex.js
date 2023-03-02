@@ -33,7 +33,7 @@ function showBookForm(e){
         sub.setAttribute('type','submit')
         sub.setAttribute('form','book-form')
         sub.setAttribute('value','Add Book')
-        sub.setAttribute('class','btn btn-lg btn-dark btn-outline-success')
+        sub.setAttribute('class','btn btn-lg btn-dark btn-outline-info')
 
     formMain.append(formGroup1, formGroup2, sub)
 

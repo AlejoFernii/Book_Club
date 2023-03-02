@@ -1,6 +1,6 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.models import user, favorite
-from flask import flash
+from flask import flash, session
 
 
 class Book:
@@ -16,6 +16,7 @@ class Book:
 
         self.creator = None
         self.liked_by = []
+        self.in_favs = False
 
     @classmethod
     def save(cls, data):
@@ -31,6 +32,9 @@ class Book:
 
         all_books = []
 
+        fav_user_data = {'id':session['user_id']} 
+        user_favs = favorite.Favorite.get_all_favs_from_user(fav_user_data)
+
         for row in results:
 
             one_book = cls(row)
@@ -44,27 +48,18 @@ class Book:
                 'created_at': row['users.created_at'],
                 'updated_at': row['users.updated_at'],
             }
-
-            fav_data = {'id': one_book.id}
-            favorites = favorite.Favorite.get_liked_by(fav_data)
-            print(favorites)
-            for fav in favorites:
-                # like_by_data = {
-                #     'id': fav['users.id'],
-                #     'first_name': fav['first_name'],
-                #     'last_name': fav['last_name'],
-                #     'email': fav['email'],
-                #     'password': fav['password'],
-                #     'created_at': fav['created_at'],
-                #     'updated_at': fav['updated_at'],
-                # }
-                # one_favorite = user.User(like_by_data)
-
-                one_book.liked_by.append(fav)
-
             one_user = user.User(user_data)
 
+            for b in user_favs:
+                if one_book.id == b.id:
+                    one_book.in_favs = True
+
             one_book.creator = one_user
+            fav_data = {'id': one_book.id}
+            favorites = favorite.Favorite.get_liked_by(fav_data)
+            for fav in favorites:
+
+                one_book.liked_by.append(fav)
 
             all_books.append(one_book)
 
@@ -78,6 +73,9 @@ class Book:
 
         all_books = []
 
+        fav_user_data = {'id':session['user_id']} 
+        user_favs = favorite.Favorite.get_all_favs_from_user(fav_user_data)
+
         for row in results:
 
             one_book = cls(row)
@@ -91,6 +89,9 @@ class Book:
                 'created_at': row['users.created_at'],
                 'updated_at': row['users.updated_at'],
             }
+            for b in user_favs:
+                if one_book.id == b.id:
+                    one_book.in_favs = True
 
             one_user = user.User(user_data)
 
@@ -105,7 +106,8 @@ class Book:
         query = "SELECT * FROM books JOIN users ON books.user_id = users.id WHERE books.id = %(id)s;"
 
         results = connectToMySQL(cls.DB).query_db(query,data)
-
+        fav_user_data = {'id':session['user_id']} 
+        user_favs = favorite.Favorite.get_all_favs_from_user(fav_user_data)
         for row in results:
 
             one_book = cls(row)
@@ -119,6 +121,10 @@ class Book:
                 'created_at': row['users.created_at'],
                 'updated_at': row['users.updated_at'],
             }
+
+            for b in user_favs:
+                if one_book.id == b.id:
+                    one_book.in_favs = True
 
             one_user = user.User(user_data)
 

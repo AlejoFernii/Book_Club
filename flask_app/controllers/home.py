@@ -11,9 +11,11 @@ def home():
     user_data = {'id':session['user_id']}
     current_user = user.User.get_one(user_data)
 
-    all_favs = favorite.Favorite.get_all_favs_from_user(user_data)
-
+    # all_favs = favorite.Favorite.get_all_favs_from_user(user_data)
+    
+    
     all_books = book.Book.get_all_with_user()
 
-    return render_template('home.html', current_user=current_user, all_books=all_books, all_favs=all_favs)
+
+    return render_template('home.html', current_user=current_user, all_books=all_books)
 

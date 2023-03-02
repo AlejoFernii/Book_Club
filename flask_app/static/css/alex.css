@@ -133,6 +133,40 @@ body {
 li{
     text-align: center;
     font-size: 1.5rem;
+    display: flex;
+    gap: 10px;
+}
+
+.book-card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 0px rgba(50, 69, 89, 0.84);
+    background-color: rgba(76, 80, 83, 0.159);
+}
+
+.liked-by{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 0px rgba(50, 69, 89, 0.84);
+    background: linear-gradient(to right,rgba(75, 84, 98, 0.225),rgba(36, 140, 161, 0.68));
+    height: fit-content;
+}
+.likes{
+    border: none    ;
+}
+
+.pad10{
+    padding: 10px;
 }
 
 
@@ -187,7 +221,7 @@ li{
 
 #index-div{
     opacity: 0;
-    animation: fade 1s ease-in 1s forwards;
+    animation: fade 1s ease-in .5s forwards;
     }
 
     @keyframes fade {
@@ -211,3 +245,18 @@ li{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.width-100{
+    width: 100%;
+    
+}
+
+.width-max{
+    width: max-content;
+}
+
+.color-div{
+    background: linear-gradient(to left,rgba(67, 125, 205, 0.657),rgba(69, 214, 202, 0.711));
+
+}
+

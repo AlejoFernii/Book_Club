@@ -28,7 +28,7 @@ def register():
     
 
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
-    print(pw_hash)
+    # print(pw_hash)
 
     data = {
         'first_name': request.form['first_name'],
